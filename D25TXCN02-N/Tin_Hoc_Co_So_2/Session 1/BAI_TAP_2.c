@@ -1,26 +1,41 @@
 #include <stdio.h>
 #include <math.h>
-#define PI 3.14
 
 int main() {
-    float dai,rong;
-    float chuVi,dienTich;
-    float duongCheo;
+    float a, b, c;
+    printf("Nhap he so a, b, c: ");
+    scanf("%f %f %f", &a, &b, &c);
 
-    printf("Nhap chieu dai: ");
-    scanf("%f", &dai);
+    if (a == 0) {
+        if (b == 0) {
+            if (c == 0) {
+                printf("Phuong trinh vo so nghiem.\n");
+            } else {
+                printf("Phuong trinh vo nghiem.\n");
+            }
+        } else {
+            float x = -c / b;
+            printf("Phuong trinh bac nhat co nghiem: x = %.2f\n", x);
+        }
+    }
+    else {
+        float delta = b*b - 4*a*c;
 
-    printf("Nhap chieu rong: ");
-    scanf("%f", &rong);
-
-    chuVi = (dai + rong) * 2;
-    dienTich = dai * rong;
-    duongCheo = sqrt(dai * dai + rong * rong);
-
-    printf("\n--- Ket qua ---\n");
-    printf("Chu vi hinh chu nhat: %.2f\n", chuVi);
-    printf("Dien tich hinh chu nhat: %.2f\n", dienTich);
-    printf("Duong cheo hinh chu nhat: %.2f\n", duongCheo);
+        if (delta < 0) {
+            printf("Phuong trinh vo nghiem.\n");
+        }
+        else if (delta == 0) {
+            float x = -b / (2*a);
+            printf("Phuong trinh co nghiem kep: x = %.2f\n", x);
+        }
+        else { 
+            float x1 = (-b + sqrt(delta)) / (2*a);
+            float x2 = (-b - sqrt(delta)) / (2*a);
+            printf("Phuong trinh co hai nghiem phan biet:\n");
+            printf("x1 = %.2f\n", x1);
+            printf("x2 = %.2f\n", x2);
+        }
+    }
 
     return 0;
 }
