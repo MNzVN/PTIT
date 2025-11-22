@@ -1,26 +1,46 @@
 #include <stdio.h>
-#include <math.h>
-#define PI 3.14
 
 int main() {
-    float dai,rong;
-    float chuVi,dienTich;
-    float duongCheo;
+    int N, K;
+    int temp;
+    int sum = 0;
+    int count = 0;
 
-    printf("Nhap chieu dai: ");
-    scanf("%f", &dai);
+    do {
+        printf("Nhap so nguyen duong N: ");
+        scanf("%d", &N);
 
-    printf("Nhap chieu rong: ");
-    scanf("%f", &rong);
+        if (N <= 0) {
+            printf("N phai la so nguyen duong! Moi nhap lai.\n");
+        }
+    } while (N <= 0);
 
-    chuVi = (dai + rong) * 2;
-    dienTich = dai * rong;
-    duongCheo = sqrt(dai * dai + rong * rong);
+    temp = N;
 
-    printf("\n--- Ket qua ---\n");
-    printf("Chu vi hinh chu nhat: %.2f\n", chuVi);
-    printf("Dien tich hinh chu nhat: %.2f\n", dienTich);
-    printf("Duong cheo hinh chu nhat: %.2f\n", duongCheo);
+    int nCopy = N;
+    while (nCopy > 0) {
+        sum += nCopy % 10;
+        nCopy /= 10;
+    }
+
+    do {
+        printf("Nhap chu so K (0-9): ");
+        scanf("%d", &K);
+
+        if (K < 0 || K > 9) {
+            printf("K phai la chu so tu 0 den 9!\n");
+        }
+    } while (K < 0 || K > 9);
+
+    while (temp > 0) {
+        if (temp % 10 == K) {
+            count++;
+        }
+        temp /= 10;
+    }
+
+    printf("Tong cac chu so cua %d = %d\n", N, sum);
+    printf("Chu so %d xuat hien %d lan trong %d\n", K, count, N);
 
     return 0;
 }
