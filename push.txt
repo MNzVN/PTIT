@@ -1,0 +1,21 @@
+git init --initial-branch=main
+git remote add origin https://git.rikkei.edu.vn/it108_k25_tran_hieu_nghia/session17/btvn.git
+git add .
+git commit -m "Initial commit"
+git push --set-upstream origin main
+
+git init --initial-branch=main
+git remote add origin https://git.rikkei.edu.vn/tranhieunghia_n25dtcn130_c_btvn/session6/btvn.git
+git add .
+git commit -m "Initial commit"
+git push --set-upstream origin main
+
+
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+
+
+git add .
+git commit -m "first commit"
+git push -u origin main
